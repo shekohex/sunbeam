@@ -1,0 +1,11 @@
+[workspace]
+members = [
+  "node",
+  "client",
+  "runtime",
+]
+
+[profile.release]
+lto = true
+panic = 'unwind'
+codegen-units = 1
