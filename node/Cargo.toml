@@ -1,9 +1,54 @@
 [package]
-name = "node"
+name = "sunbeam-node"
 version = "0.1.0"
 authors = ["Shady Khalifa <shekohex@gmail.com>"]
 edition = "2018"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[[bin]]
+name = "sunbeam-node"
 
 [dependencies]
+structopt = "0.3.8"
+
+sc-cli = { version = "0.8.0-rc6", features = ["wasmtime"] }
+sp-core = { version = "2.0.0-rc6" }
+sc-executor = { version = "0.8.0-rc6", features = ["wasmtime"] }
+sc-service = { version = "0.8.0-rc6", features = ["wasmtime"] }
+sp-inherents = { version = "2.0.0-rc6" }
+sc-transaction-pool = { version = "2.0.0-rc6" }
+sp-transaction-pool = { version = "2.0.0-rc6" }
+sc-consensus-aura = { version = "0.8.0-rc6" }
+sp-consensus-aura = { version = "0.8.0-rc6" }
+sp-consensus = { version = "0.8.0-rc6" }
+sc-consensus = { version = "0.8.0-rc6" }
+sc-finality-grandpa = { version = "0.8.0-rc6" }
+sp-finality-grandpa = { version = "2.0.0-rc6" }
+sc-client-api = { version = "2.0.0-rc6" }
+sp-runtime = { version = "2.0.0-rc6" }
+
+# These dependencies are used for the node template's RPCs
+jsonrpc-core = "14.0.3"
+sc-rpc = { version = "2.0.0-rc6" }
+sp-api = { version = "2.0.0-rc6" }
+sc-rpc-api = { version = "0.8.0-rc6" }
+sp-blockchain = { version = "2.0.0-rc6" }
+sp-block-builder = { version = "2.0.0-rc6" }
+sc-basic-authorship = { version = "0.8.0-rc6" }
+substrate-frame-rpc-system = { version = "2.0.0-rc6" }
+pallet-transaction-payment-rpc = { version = "2.0.0-rc6" }
+
+
+# These dependencies are used for runtime benchmarking
+frame-benchmarking = { version = "2.0.0-rc6" }
+frame-benchmarking-cli = { version = "2.0.0-rc6" }
+
+sunbeam-runtime = { path = "../runtime" }
+
+[build-dependencies]
+substrate-build-script-utils = { version = "2.0.0-rc6" }
+
+[features]
+default = []
+runtime-benchmarks = [
+  "sunbeam-runtime/runtime-benchmarks",
+]

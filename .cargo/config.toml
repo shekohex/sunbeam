@@ -15,4 +15,4 @@ linker = "rust-lld.exe"
 rustflags = ["-Zshare-generics=y"]
 
 [alias]
-node = "run --bin sunbeam-node"
+node = "run -q --bin sunbeam-node --"
